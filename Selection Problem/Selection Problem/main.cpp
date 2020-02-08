@@ -1,15 +1,17 @@
 //
 //  main.cpp
-//  PartyHat
+//  Selection Problem
 //
-//  Created by Jake Kaslewicz on 2/4/20.
+//  Created by Jake Kaslewicz on 2/7/20.
 //  Copyright © 2020 Jake Kaslewicz. All rights reserved.
 //
 
 #include <iostream>
+using namespace std;
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    
+    
+    
     return 0;
 }
