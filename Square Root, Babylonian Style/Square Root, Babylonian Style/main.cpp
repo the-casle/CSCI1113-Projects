@@ -9,22 +9,37 @@
 #include <iostream>
 using namespace std;
 
+double babylonianRoot(double initialNumber);
+
 int main(int argc, const char * argv[]) {
-    double initialNumber;
-    cout << "Input positive integer to take square root of:\n";
-    cin >> initialNumber;
-    
-    if(initialNumber > 0){
-        double previousGuess = 1;
-        double currentGuess = initialNumber / 2;
-        while(currentGuess >= previousGuess * 1.01 || currentGuess <= previousGuess * .99){
-            previousGuess = currentGuess;
-            currentGuess = (currentGuess + initialNumber / currentGuess) / 2;
+    bool continueRoot = true;
+    while(continueRoot){
+        double initialNumber;
+        cout << "Enter a value:\n";
+        cin >> initialNumber;
+        if(initialNumber > 0){
+                cout << "The square root of " << initialNumber << " is " << babylonianRoot(initialNumber) << endl;
+                char continueString;
+                cout << "continue? (y/n): ";
+                cin >> continueString;
+                if(continueString == 'y'){
+                    continueRoot = true;
+                } else {
+                    continueRoot = false;
+                }
+        } else {
+            cout << "Thats not a positive number\n";
         }
-        cout << currentGuess << endl;
-    } else {
-        cout << "Thats not a positive number\n";
     }
-    
     return 0;
+}
+
+double babylonianRoot(double initialNumber){
+    double previousGuess = 1;
+    double currentGuess = initialNumber / 2;
+    while(currentGuess >= previousGuess * 1.01 || currentGuess <= previousGuess * .99){
+        previousGuess = currentGuess;
+        currentGuess = (currentGuess + initialNumber / currentGuess) / 2;
+    }
+    return currentGuess;
 }
