@@ -39,6 +39,7 @@ int main(int argc, const char * argv[]) {
     iterateThroughStream(inStream, letterGrades);
     outputHistogram(letterGrades);
     
+    inStream.close();
     return 0;
 }
 
@@ -77,19 +78,28 @@ char gradeFromString(string row){
 }
 
 void outputHistogram(int letterGrades[]){
+    ofstream outStream;
+    outStream.open("histogram.txt");
+    if(outStream.fail()){
+        cout << "Unable to open file.\n";
+        exit(1);
+    }
+    
     int height = maxHeight(letterGrades);
     for(int i = height; i > 0; i--){
-        cout << i << "|";
+        outStream << i << "|";
         for(int j = 0; j < 5; j++){
             if(i <= letterGrades[j]){
-                cout << "X";
+                outStream << "X";
             } else {
-                cout << " ";
+                outStream << " ";
             }
         }
-        cout << endl;
+        outStream << endl;
     }
-    cout << "  ABCDF" << endl;
+    outStream << "  ABCDF";
+    outStream.close();
+    cout << "Done making file!\n";
 }
 
 int maxHeight(int letterGrades[]){
