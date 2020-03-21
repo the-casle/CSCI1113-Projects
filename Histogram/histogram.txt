@@ -1,1 +1,4 @@
-3|X    2|X    1|XX XX  ABCDF
+3|X    
+2|X    
+1|XX XX
+ ABCDF

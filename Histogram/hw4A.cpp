@@ -97,7 +97,8 @@ void outputHistogram(int letterGrades[]){
         }
         outStream << endl;
     }
-    outStream << "  ABCDF";
+    outStream << " ABCDF";
+    
     outStream.close();
     cout << "Done making file!\n";
 }
